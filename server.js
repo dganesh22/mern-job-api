@@ -24,6 +24,9 @@ app.use(fileUpload({
 app.use(cookieParser(process.env.SECRET_TOKEN)) // pass token only for signed cookies
 
 // api routes
+app.use(`/`, (req,res) => {
+    return res.status(200).json({msg: `Welcome to MERN_JOB_REST_API..`})
+})
 app.use(`/api/v1/auth`, require('./route/authRoute'))
 app.use(`/api/v1/image`, require('./route/imageRoute'))
 app.use(`/api/v1/job`, require('./route/jobRoute'))
